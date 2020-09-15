@@ -1,0 +1,170 @@
+[
+  {
+    "id": "5ae20e49-ddc6-47e9-abe6-a722ac42b83f",
+    "data": [
+      {
+        "text": "@number:number  entradas para @type:type a las @size:size",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": true,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "944f6614-572e-4926-916d-38b94f2ed291",
+    "data": [
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " entrada para ",
+        "userDefined": false
+      },
+      {
+        "text": "Puñales por la Espalda",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "0456fe73-a502-4e74-aebe-8f2dc7015a66",
+    "data": [
+      {
+        "text": "quiero ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " entrada para ",
+        "userDefined": false
+      },
+      {
+        "text": "Puñales por la Espalda",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": false
+      },
+      {
+        "text": " a las ",
+        "userDefined": false
+      },
+      {
+        "text": "5",
+        "alias": "size",
+        "meta": "@size",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "360f59f6-b0ae-4897-92c2-389b96b57ec6",
+    "data": [
+      {
+        "text": "mira, pillame ",
+        "userDefined": false
+      },
+      {
+        "text": "tres",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " entradas para ",
+        "userDefined": false
+      },
+      {
+        "text": "la del payaso",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      },
+      {
+        "text": " a las ",
+        "userDefined": false
+      },
+      {
+        "text": "6",
+        "alias": "size",
+        "meta": "@size",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2bd0e67d-11fa-4f8e-a397-407a86544195",
+    "data": [
+      {
+        "text": "me gustaria ",
+        "userDefined": false
+      },
+      {
+        "text": "dos",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": false
+      },
+      {
+        "text": " para ",
+        "userDefined": false
+      },
+      {
+        "text": "1917",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "024e8ecf-4597-4a64-9471-3ff32c07edfe",
+    "data": [
+      {
+        "text": "quiero ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " entrada para ",
+        "userDefined": false
+      },
+      {
+        "text": "la de la guerra de las galaxias",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

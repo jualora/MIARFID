@@ -1,0 +1,44 @@
+{
+  "id": "ed83069a-24de-4ee1-8234-dc0b1775f6c7",
+  "name": "verify-no",
+  "auto": true,
+  "contexts": [
+    "buy"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "buy",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "cancel",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "es",
+          "condition": "",
+          "speech": "Puff, volvemos a empezar"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

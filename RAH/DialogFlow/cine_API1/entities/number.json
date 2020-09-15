@@ -1,0 +1,9 @@
+{
+  "id": "3def23b7-3ff3-4750-ab64-81525a04edac",
+  "name": "number",
+  "isOverridable": true,
+  "isEnum": true,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -1,0 +1,9 @@
+EJECUTAR EL PLANIFICADOR FF
+./ff -o dominio_robots.pddl -f problema_robots.pddl -s 0
+
+EJECUTAR EL PLANIFICADOR LPG
+./lpg -o dominio_robots.pddl -f problema_robots.pddl -n 1 -out solucion_LPG.txt
+
+EJECUTAR EL PLANIFICADOR OPTIC
+./optic-clp dominio_robots.pddl problema_robots.pddl
+

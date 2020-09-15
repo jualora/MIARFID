@@ -1,0 +1,50 @@
+[
+  {
+    "id": "acb8a413-9b9d-4ea1-92ee-9159cca17256",
+    "data": [
+      {
+        "text": "exactamente",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f12dc85b-88d0-4cf5-8968-77563a1a532d",
+    "data": [
+      {
+        "text": "eso es",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "21c9c8af-1813-43a8-a4f4-2757b971533c",
+    "data": [
+      {
+        "text": "correcto",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e5c0c840-1149-4a47-8eb7-64100a5a9ffb",
+    "data": [
+      {
+        "text": "sí",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "d52d644c-295e-4942-8324-336a92ed3325",
+    "data": [
+      {
+        "text": "mal",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7c0a06f7-b58c-4fff-b4ed-c569964d4ae7",
+    "data": [
+      {
+        "text": "para nada",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d777a1e5-9ed7-4208-b38e-09a6ae3072cd",
+    "data": [
+      {
+        "text": "no",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

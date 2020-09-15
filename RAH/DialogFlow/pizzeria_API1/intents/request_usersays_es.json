@@ -1,0 +1,170 @@
+[
+  {
+    "id": "a91ac834-f39c-4a70-96f4-a1b55f41e6fd",
+    "data": [
+      {
+        "text": "@size:size  pizza @type:type",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": true,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "63c6b69e-3967-4890-bedd-c18d72919839",
+    "data": [
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " pizza ",
+        "userDefined": false
+      },
+      {
+        "text": "cuatro quesos",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  },
+  {
+    "id": "96bc80f6-2cf1-44e3-a9c8-2c875ee5d7c8",
+    "data": [
+      {
+        "text": "quiero ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " pizza ",
+        "userDefined": false
+      },
+      {
+        "text": "barbacoa",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "grande",
+        "alias": "size",
+        "meta": "@size",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0fd59670-ede6-4d64-b89a-ac33ba1ec06d",
+    "data": [
+      {
+        "text": "mira, apuntame ",
+        "userDefined": false
+      },
+      {
+        "text": "tres",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " pizzas ",
+        "userDefined": false
+      },
+      {
+        "text": "medianas",
+        "alias": "size",
+        "meta": "@size",
+        "userDefined": true
+      },
+      {
+        "text": " de ",
+        "userDefined": false
+      },
+      {
+        "text": "jamón york y queso",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5a148785-d972-4b98-9b5a-c3d4ef069381",
+    "data": [
+      {
+        "text": "me gustaria ",
+        "userDefined": false
+      },
+      {
+        "text": "dos",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": false
+      },
+      {
+        "text": " pizzas ",
+        "userDefined": false
+      },
+      {
+        "text": "grandes",
+        "alias": "size",
+        "meta": "@size",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "eab9bf74-52d1-4940-8d78-6086c410eaeb",
+    "data": [
+      {
+        "text": "quiero ",
+        "userDefined": false
+      },
+      {
+        "text": "una",
+        "alias": "number",
+        "meta": "@number",
+        "userDefined": true
+      },
+      {
+        "text": " pizza ",
+        "userDefined": false
+      },
+      {
+        "text": "barbacoa",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

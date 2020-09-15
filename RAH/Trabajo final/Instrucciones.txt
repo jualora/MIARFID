@@ -1,0 +1,3 @@
+Debido a que no se puede exportar el bot en un .zip, se puede experimentar con el bot realizado desde Telegram. 
+
+El nombre del bot es @Cinebolosbot.

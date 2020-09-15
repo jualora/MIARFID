@@ -1,0 +1,28 @@
+; Plan found with metric 53.016
+; Theoretical reachable cost 53.016
+; States evaluated so far: 567
+; States pruned based on pre-heuristic cost lower bound: 3
+; Time 1.83
+0.000: (move-robot r1 l1 lp)  [4.000]
+4.001: (move-robot r1 lp l3)  [4.000]
+8.002: (get-cup r1 a1 l3 t2 b1)  [2.000]
+10.003: (get-cup r1 a1 l3 t3 b2)  [2.000]
+12.004: (move-robot r1 l3 lp)  [4.000]
+16.005: (move-robot r1 lp l1)  [4.000]
+20.006: (fill-cup r1 m1 l1 t3 b2)  [2.000]
+22.007: (fill-cup r1 m1 l1 t2 b1)  [2.000]
+24.008: (move-robot r1 l1 lp)  [4.000]
+24.008: (serve-cup r1 p2 l1 t2 b1)  [3.000]
+28.009: (move-robot r1 lp l3)  [4.000]
+32.010: (move-robot r1 l3 lp)  [4.000]
+32.010: (get-cup r1 a1 l3 t1 b1)  [2.000]
+36.011: (move-robot r1 lp l1)  [4.000]
+40.012: (fill-cup r1 m1 l1 t1 b1)  [2.000]
+40.013: (move-robot r1 l1 l2)  [2.000]
+42.014: (move-robot r1 l2 lp)  [4.000]
+42.014: (serve-cup r1 p1 l2 t1 b1)  [3.000]
+46.015: (move-robot r1 lp l4)  [4.000]
+50.016: (serve-cup r1 p3 l4 t3 b2)  [3.000]
+
+ * All goal deadlines now no later than 53.016
+

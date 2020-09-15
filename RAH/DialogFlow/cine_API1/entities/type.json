@@ -1,0 +1,9 @@
+{
+  "id": "4f41ed02-6a1c-48a1-9cf3-e6b0ae31766e",
+  "name": "type",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

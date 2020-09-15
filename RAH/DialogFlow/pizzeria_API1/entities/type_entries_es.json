@@ -1,0 +1,52 @@
+[
+  {
+    "value": "barbacoa",
+    "synonyms": [
+      "barbacoa"
+    ]
+  },
+  {
+    "value": "cuatro quesos",
+    "synonyms": [
+      "cuatro queso",
+      "cuatro quesos"
+    ]
+  },
+  {
+    "value": "jamón york y queso",
+    "synonyms": [
+      "jamon y queso",
+      "jamon york y queso",
+      "jamón y queso",
+      "jamón york",
+      "jamón york y queso"
+    ]
+  },
+  {
+    "value": "margarita",
+    "synonyms": [
+      "margarita"
+    ]
+  },
+  {
+    "value": "napolitana",
+    "synonyms": [
+      "napolitana"
+    ]
+  },
+  {
+    "value": "pepperoni",
+    "synonyms": [
+      "chorizo",
+      "pepperoni"
+    ]
+  },
+  {
+    "value": "tropical",
+    "synonyms": [
+      "con piña",
+      "hawaiana",
+      "tropical"
+    ]
+  }
+]

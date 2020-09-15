@@ -1,0 +1,49 @@
+{
+  "id": "a827c1c2-bf5d-4bf5-8cbc-4c13d33a80d2",
+  "name": "verify-yes",
+  "auto": true,
+  "contexts": [
+    "buy"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "process",
+      "affectedContexts": [
+        {
+          "name": "buy",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "confirmed",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "es",
+          "condition": "",
+          "speech": "pedido completo"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "request-completed"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

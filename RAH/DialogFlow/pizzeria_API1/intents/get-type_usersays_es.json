@@ -1,0 +1,34 @@
+[
+  {
+    "id": "31fca51e-a4e3-4d09-856d-8a6648e3d097",
+    "data": [
+      {
+        "text": "cuatro quesos",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5205c321-dbd9-4166-a1cc-79ecbf955cd7",
+    "data": [
+      {
+        "text": "sólo ",
+        "userDefined": false
+      },
+      {
+        "text": "jamón york",
+        "alias": "type",
+        "meta": "@type",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 2,
+    "updated": 0
+  }
+]

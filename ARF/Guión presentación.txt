@@ -1,0 +1,149 @@
+################################### DIAPO 1 ###################################
+
+Buenas tardes, somos Jacobo López y Juan López y vamos a presentar el trabajo final de la asignatura, que hemos titulado "Diseño de una red neuronal para el reescalado de imágenes".
+ 
+################################### DIAPO 2 ###################################
+
+Primero, explicaremos en qué consiste esta tarea, qué datasets hemos utilizado y las métricas de evaluación que hemos seleccionado.
+
+Luego, hablaremos sobre el tipo de red neuronal que hemos escogido para resolver la tarea, y como la hemos diseñado e implementado.
+
+Finalmente, os mostraremos los resultados que hemos obtenido y haremos unas breves conclusiones.
+
+################################### DIAPO 3 ###################################
+
+Bien, la tarea consiste en aumentar el número de píxeles de una imagen, perdiendo la menor cantidad de información posible.
+
+Mejorar la calidad de una imagen es complejo debido a la variedad de elementos que pueden existir en las imágenes, como pueden ser el color o la intensidad, entre otras.
+
+Para ello, se hace uso de las redes neuronales convolucionales, donde cada capa puede reconocer características sencillas de una imagen dada.
+
+Hemos decidido implementar este sistema en Keras y Tensorflow.
+
+################################### DIAPO 4 ###################################
+
+Los datasets que se han utilizado son el CIFAR y el DIV2K. El primero se utiliza para tareas de clasificación, mientras que el segundo que utilizó en 2017 y 2018 para una tarea de reescalado de imágenes a menor tamaño manteniendo la calidad, similar a la tarea que nos ocupa.
+
+De CIFAR hemos tomado 1600 imágenes de 32x32 píxeles, mientras que de DIV2K 900 fotos de 255x175.
+
+También se ha usado MNIST de manera puntual para ejemplificar los métodos que se explican en estas diapositivas.
+
+################################### DIAPO 5 ###################################
+
+Para cargar estas imágenes, hemos implementado un método en Python en el cuál se carga la imagen y se le aplica una reducción con un determinado factor de escala.
+
+A esta reducción le aplicamos una interpolación lineal para obtener la imagen a mayor tamaño sin modificar los píxeles, de manera que, como se puede apreciar, tenemos la imagen original y debajo la imagen con el mismo tamaño pero menor número de píxeles, como si se le hubiese aplicado un zoom.
+
+De esta forma tendremos los pares de imágenes en baja y alta resolución que se utilizarán para entrenamiento y validación.
+
+En nuestro caso, los primeros experimentos que hicimos fue cargando las imágenes de CIFAR con un tamaño de 28x28 como target y 14x14 como input, mientras que con DIV2K partimos de imágenes en tamaño 32x32 y obtenemos su equivalente en tamaño 64x64.
+
+################################### DIAPO 6 ###################################
+
+En cuanto a las métricas de evaluación escogidas, dado que se trata de comparar dos imágenes, se ha escogido el PSNR y el SSIM.
+
+El primero define la relación entre la máxima energía posible de una señal y el ruido que afecta a su representación.
+
+Su uso es muy habitual en la reconstrucción de imágenes después de ser comprimidas, como medida de calidad.
+
+Para definirla, primero se hace uso del error cuadrático medio, que, dadas dos imágenes I y K, las recorre píxel a píxel calculando la diferencia entre cada píxel de las dos, sumando todas las distancias y dividiendo por el tamaño de las imágenes.
+
+A partir de este MSE, se calcula el PSNR como se aprecia en esta ecuación. Los valores típicos de PSNR suelen estar entre 30 y 50 dB y, cuanto mejor es la codificación, mayor es el PSNR.
+
+Por otro lado, se ha usado el SSIM, que descompone los píxeles de las imágenes según la luz, el contraste y su estructura, de forma que cuando el valor está próximo a 1 quiere decir que la imagen es muy similar a la original.
+
+################################### DIAPO 7 ###################################
+
+El tipo de red que hemos usado para entrenar nuestro sistema es una red generativa antagónica, cuyo propósito es entrenar una red junto a otra.
+
+Se basa en la teoría de juegos de suma cero, donde un jugador aprende de la competencia, de forma que el que siempre le gana al otro tiene el nombre de discriminador, y el que aprende constantemente es el generador.
+
+Como se aprecia en la imagen, el generador parte de información no existente para generar una nueva y compararla con la real, siendo función del discriminador determinar si lo generado es falso o no. Esto se hace de forma iterativa hasta que el discriminador reconoce como real algo falso.
+
+En nuestro caso, el generador, a partir de una imagen en baja resolución, produce su versión en alta calidad, y el discriminador ha de compararla con la imagen original en alta resolución para saber si se trata de una imagen apta o no.
+
+################################### DIAPO 8 ###################################
+
+Antes de implementar nuestra GAN propiamente dicha, hemos de generar una red que obtenga, dada una imagen, sus características, de manera que el generador de la GAN tenga una especie de orientación a la hora de producir las imágenes.
+
+Para ello, hemos implementado una red convolucional para que, en cada una de sus capas, aprenda un aspecto distinto de la jerarquía de las imágenes, como pueden ser los bordes, la geometría, etc.
+
+En la imagen podemos ver la estructura de esta CNN, en la que se quieren aprender las características de una imagen objetivo de 28x28 en caso de CIFAR o de 64x64 en caso de DIV2K.
+
+Primero, aplicamos una máscara de 16x16 y 64 filtros. Cada filtro determina algunas características y las cuantifica. Luego se aplica una convolución de 32 filtros con una ventana de 8x8 y, finalmente, una última de 3 y 2x2.
+
+Así, la capa de salida obtiene una resolución de 28x28x3 o de 64x64x3 con la mejor versión según las características aprendidas previamente. El 3 se debe a que es RGB.
+
+Una vez hemos entrenado y validado la red, se guarda el modelo como un fichero que luego será cargado por la GAN. 
+
+################################### DIAPO 9 ###################################
+
+Aquí podemos ver los resultados de esta CNN sobre el dataset MNIST. Se puede observar que visualmente la reconstruida se parece a la de alta resolución, pero como si estuviera un poco borrosa.
+
+################################### DIAPO 10 ###################################
+
+Entrando ya en la red GAN propiamente dicha, esta es la estructura que tiene, donde el generador se encarga de producir imágenes en alta resolución a partir de las de baja, para compararlas con las originales y obtener una función de pérdida que hay que minimizar en cada iteración de la red.
+
+Incialmente, se hace una primera pasada en la que en el discriminador evalúa las imágenes reales y las creadas por el generador para determinar cuales son correctas y cuales son erróneas.
+
+El funcionamiento de la red consta de dos etapas, la de entrenamiento y la de formación.
+
+################################### DIAPO 11 ###################################
+
+En la etapa de entrenamiento, después de hacer la primera pasada que hemos comentado, empieza la etapa de entrenamiento, en la que se congelan los pesos del discriminador y no se le pasan imágenes nuevas.
+
+Mientras, el generador va actualizando sus pesos para que las imágenes que produzca sean lo más parecidas a las originales. 
+
+En esta etapa se cargan los pesos de la red de características que habíamos guardado previamente, de forma que sus parámetros sirven de apoyo para el generador.
+
+################################### DIAPO 12 ###################################
+
+En la etapa de formación, se ingresan nuevas imágenes en el discriminador y se comprueba si el generador ha mejorado sus resultados desde la última vez. 
+
+Este proceso de dos etapas se repite hasta que el discriminador no distinga entre una imagen real y una producida por el generador.
+
+################################### DIAPO 13 ###################################
+
+Para implementar el generador, que es como una red neuronal a parte, hemos implementado un MLP de 3 capas ocultas de 256, 512 y 1024 neuronas, respectivamente. 
+
+El generador tiene como entrada la imagen en baja resolución, aplanando inicialmente la matriz con un flatten, y obtiene como salida la imagen en alta resolución.
+
+La última capa es de 2352 o 12288 neuronas ya que, al final, se reacomoda el resultado en una resolución de 28x28x3 en el caso de imagenes CIFAR o 64x64x3 en el caso de DIV2K, que es la versión en alta resolución.
+
+################################### DIAPO 14 ###################################
+
+El discriminador, a partir de los datos de entrada correctos y erróneos, genera una matriz de salida donde clasifica los datos que son correctos y los que no.
+
+El resultado es un porcentaje entre 0 y 1 de qué tan igual es la imagen "fake" con la verdadera. 
+
+Igual que el generador, el discriminador consiste en un MLP de 4 capas con 1024, 512, 256 y 3 neuronas, respectivamente. La última capa es de 3 debido a que son los bits que determinan el color de la imagen y, a su vez, contienen la distribución probabilística del parecido a una imagen real.
+
+################################### DIAPO 15 ###################################
+
+Los resultados obtenidos se pueden apreciar aquí, donde, a partir del dataset de CIFAR, un input de 14x14 y un target de 28x28, hemos escogido tres imágenes del conjunto de validación.
+
+Como se puede observar, la GAN ha generado imágenes bastante similares a las de alta resolución y las métricas nos han arrojado resultados muy cercanos a 1 en el SSIM y altos en el PSNR. 
+
+Aunque también añade mucho ruido a las imágenes, ya que a muchos de los píxeles de las generadas se les ha asignado un color que no se corresponde con el de la original.
+
+################################### DIAPO 16 ###################################
+
+En el caso de DIV2K, tomamos imágenes de 32x32 y las reescalamos a 64x64.
+
+Las imágenes generadas con la GAN, de manera similar a lo que sucedía en CIFAR, obtienen un PSNR alto y valores de SSIM próximos a 1, aunque el ruido sigue presente.
+
+################################### DIAPO 17 ###################################
+
+Para concluir, podemos decir que:
+
+- El objetivo de diseñar una red generativa antagónica que aumente la resolución de una imagen con un parecido a la real empleando la librería de Keras ha resultado satisfactorio, a pesar de haber tenido dificultades por los recursos computacionales que requiere una tarea como esta.
+
+- Es necesario evaluar la cantidad de recursos que puede requerir cualquier implementación y la importancia de un buen diseño para suplir una necesidad real.
+
+- Se ha de encontrar información clara sobre el funcionamiento de la GAN, para lo cual se hizo uso de portales web como Medium o TowardsDataScience.
+
+- El uso de Google Colaboratory nos facilitó mucho el trabajo, ya que es una excelente herramienta que evita inconvenientes que pueden haber en una instalación local, aunque el entrenamiento y validación de las distintas redes utilizadas demoró más de lo previsto debido a los altos recursos que se necesitan.
+
+- Con respecto a futuros trabajos, sería interesante modificar nuestro modelo de redes neuronales para añadir técnicas que nos permitan reducir el ruido que se genera en las imágenes a la salida del sistema.
+
+Y con esto finalizamos la presentación y quedamos a vuestra disposición para resolveros cualquier duda. Muchas gracias.

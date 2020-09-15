@@ -1,0 +1,31 @@
+{
+  "id": "2330cce9-a17a-4d0e-8112-0e19c079c43e",
+  "name": "film_list",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "es",
+          "condition": "",
+          "speech": "Estas son las películas que tenemos actualmente en cartelera: || PUÑALES POR LA ESPALDA || 1917 || El Faro ||  Jo Jo Rabbit || Parásitos || Star Wars: Episodio IX - El Ascenso de Skywalker"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

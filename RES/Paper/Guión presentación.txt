@@ -1,0 +1,117 @@
+################################### DIAPO 1 ###################################
+
+Hola, voy a presentar el trabajo final de la asignatura de Reconocimiento de Escritura, en el que haré un comentario del artículo "Text Extraction and Restoration of Old Handwritten Documents", del instituto indio tecnológico de Patna y el estadístico de Kolkata. El enlace al paper está disponible en la descripción de este vídeo.
+ 
+################################### DIAPO 2 ###################################
+
+Primero, explicaré en qué consiste la tarea que desarrolla este artículo y comentaré aquellos trabajos relacionados que se mencionan en él.
+
+Luego, hablaré sobre los dos métodos que proponen los autores, así como de los resultados que obtienen utilizando unas determinadas métricas.
+
+Finalmente, se presentarán unas conclusiones, centradas especialmente en las sugerencias que se exponen sobre la dirección que han de seguir futuros trabajos relacionados con este tema.
+
+################################### DIAPO 3 ###################################
+
+Cuando se intenta recuperar manuscritos antiguos para su posterior digitalización, está muy presente el problema de que se queden impresos escritos en el lado opuesto de la hoja de papel, especialmente cuando dichos escritos se generan con tinta.
+
+Este hecho genera una especie de ruido en el documento, cuando realmente lo que interesa de él es la cara principal, que será tomada en consideración para el procesamiento y extracción de la información de dicho documento.
+
+Además de eso, está el problema de la variación en los tonos de la tinta que se está usando para escribir el texto. Esto implica que haya ciertas manchas de tinta que degradan el documento.
+
+Así, el objetivo de esta investigación se centra principalmente en eliminar ese ruido generado y restaurar el contenido importante del manuscrito, es decir, recuperar la forma original que tenía antes de sufrir cualquier tipo de degradación.
+
+Como se puede apreciar, el sistema que se encargará de esta labor tendrá como entrada la imagen que contiene el texto degradado, y como salida la imagen restaurada.
+
+################################### DIAPO 4 ###################################
+
+El dataset utilizado contiene 26 cartas pertenecientes al profesor Mahalanobis, obtenidas por el instituto indio de estadística de Kolkata a través del museo memorial de Mahalanobis. Estas cartas están escritas en papeles finos que se ven afectados por diversos tipos de degradación. Así, el dataset contiene las imágenes de estas cartas en su versión limpia y sucia.
+
+Los autores utilizan 10 imágenes para entrenar y 16 para test, aunque reconocen que esta separación es una elección subjetiva. Al ser cartas patrimoniales, no son muy fáciles de conseguir, lo que explica la importancia de usar este conjunto de datos. También comentan que el dataset estará disponible en línea pronto, sin especificar una fecha exacta.
+
+################################### DIAPO 5 ###################################
+
+Posteriormente, los autores hacen hincapié en la importancia de la restauración de manuscritos antiguos y en las técnicas que preceden a las que ellos implementaron.
+
+Por un lado, están los métodos que requieren una minuciosa observación y conocimiento previo por parte del desarrollador, como pueden ser las tareas de etiquetado usando los modelos ocultos de Markov, la distribución de los distintos valores de los píxeles representada en una mixtura de Gaussianas, o el uso del clustering de K-medias para segmentar imágenes.
+
+Por otro lado, y debido a la creciente popularidad que está teniendo, el Deep Learning también cuenta con modelos para atacar este tipo de problemas. En el artículo se recopilan algunas de ellas, como un sistema de 5 redes convolucionales completamente conexas que operan sobre multiples escalas de la imagen; un auto-encoder convolucional o redes neuronales recurrentes.
+
+Aquellos trabajos que utilizan todos estos métodos y algunos más han sido recopilados por los autores e incluidos en la bibliografía al final del artículo. 
+
+################################### DIAPO 6 ###################################
+
+En el paper se proponen dos métodos. Ambos explotan las redes neuronales convolucionales, especialmente el auto-encoder. 
+
+Como el trabajo propone un enfoque basado en el aprendizaje profundo, se requiere generar el conjunto de datos para poder tener la versión "limpia" de la imagen y la versión "degradada".
+
+El primer método hace la binarización del texto en el primer paso, para posteriormente estimar el fondo de la imagen restaurada de manera no supervisada usando las mixturas de Gaussianas en el segundo paso. Por último, en el tercer paso, el texto extraído y el fondo estimado se combinan para generar la imagen restaurada.
+
+El segundo método entrena, en paralelo, dos redes neuronales diferentes con una arquitectura parecida para generar, primero, el texto del documento con su color restaurado y, segundo, el fondo esperado. Por último, las salidas de ambas redes se combinan para formar la imagen restaurada.
+
+Por tanto, además de la imagen "limpia" esperada, se necesitan otras muestras que formen el fichero de etiquetas, que en inglés se conoce como "groundtruth".
+
+Para el método 1, se necesitará la imagen del texto binarizada, que es la máscara de texto en primer plano de la imagen del documento. 
+
+Para el método 2, se necesitará, por un lado, la imagen del primer plano esperado, que es  solo el texto, pero con el color restaurado; y por otro lado la imagen del fondo esperado, que corresponde al fondo de la imagen restaurada. Este cuadrado representa el color medio predicho de varias partes de una imagen, obtenido usando las mixturas de Gaussianas.
+
+################################### DIAPO 7 ###################################
+
+Para generar esta imagen de texto binarizada es necesario hacer un preproceso y luego una extracción del texto. En el preproceso se convierten las imagenes en color a escala de grises, basándose en la calidad de la imagen de entrada.
+
+Si el fondo o el color del papel es brillante, la intensidad en un pixel se calcula como dicta esta fórmula, donde R, G y B son los componentes de rojo, verde y azul de dicho pixel. Por contra, si el fondo o el color del papel es oscuro, la intensidad se calcula directamente como el maximo de las tres funciones para ese píxel.
+
+En la extracción del texto, se aplica un análisis de las estadísticas locales, utilizando un umbral de nivel de gris adaptable. Finalmente, la imagen del texto se difumina con el núcleo gaussiano para reducir cualquier ruido o defecto estructural que pudiera seguir presente.
+
+En lo que respecta a la generación del primer plano, es decir, el texto esperado, se parte de la extracción de texto que previamente se ha realizado, mientras que para llevar a cabo la restauración de los colores, la imagen de texto binarizado extraída (por ejemplo, el fondo contiene '0' y el primer plano '1') es multiplicada por la imagen de color de entrada para extraer los colores presentes en los lugares del texto. Esto se puede observar en esta fórmula, donde X es la imagen degradada, X' la parte manuscrita, y T la imagen de texto binarizado extraida. A T se le multiplica un cierto parámetro que toma un valor entre 0 y 1, para que el efecto de desvanecimiento de la tinta se vuelva uniforme sobre toda la cara del papel.
+
+Por último, para generar la imagen del fondo esperado, se utiliza un modelo de mixturas Gaussianas, donde la imagen de entrada se aplana para que el numero de observaciones sea igual al número de píxeles presentes en la imagen, cada uno con los tres canales R, G, B. De esta forma, y siguiendo esta formula, se calcula la probabilidad de c, que es el  vector de colores (R,G,B) en el pixel (x,y), donde mu sub_i y sigma sub_i representan, respectivamente, el vector de medias y la matriz de covarianzas de la i-esima distribución, mientras que P sub_i es la probabilidad a priori. El objetivo es maximizar esta p minuscula para asignar al pixel el color adecuado. Esta figura muestra cuatro colores medios de cuatro grupos que corresponden a la imagen de un documento degradado, donde este color se refiere a la parte blanca debido al escaneo, este al fondo, este al texto y este a la impresión de la otra cara. A partir de aquí, se forma una matriz del mismo tamaño que la imagen de entrada, llena de números aleatorios generados siguiendo una distribución gaussiana con vector de medias mu sub_i y matriz de co-varianzas sigma sub_i, correspondientes al color del fondo. Finalmente, se aplica una difuminación gaussiana a la matriz generada para suavizar las variaciones drásticas en los píxeles vecinos. De esta forma, se reconstruye el fondo de la imagen degradada.
+
+################################### DIAPO 8 ###################################
+
+Pasando ya a los modelos propuestos, el primer método consiste en cuatro pasos, el primero hacer el preproceso que hemos visto en la diapositiva anterior, luego una extracción del texto haciendo uso de un auto-encoder, y posteriormente la generacion del primer plano restaurado y del fondo restaurado, como hemos visto anteriormente. La razón por la que utilizan un método alternativo para la extracción del texto es porque comentan que la binarización es una tarea bastante crítica, por lo que decidieron usar una CNN que obtuviese una buena precisión a partir de una imagen de entrada en escala de grises.
+
+################################### DIAPO 9 ###################################
+
+Para esta extracción del texto, el auto-encoder se entrena con muestras de tamaño 256x256. El encoder cuenta con 4 capas convolucionales y el decoder con 6 traspuestas, a lo que se le añade un stride de 2 para todas las capas salvo las dos últimas, que tienen un stride igual a 1, mientras que el padding está activado solo para las ultimas tres capas. Se utiliza la tangente hiperbolica como función de activación.
+
+Como el objetivo es obtener una imagen binaria del documento y extraer el texto a partir de ahí, ellos usan la función de la disimilitud estructural o DSSIM, abreviado, como la función objetivo. La función DSSIM se relaciona con la SSIM de esta forma, donde x es la predicción, e y es el correspondiente valor que debería tener. El SSIM se define de esta manera, donde mu y tecta son las media y la varianza, respectivamente, y C1 y C2 son constantes mayores que 0 para evitar la divisón por 0.
+
+La salida de la red extractora de texto es una imagen en escala de grises, a la que se le aplicara un filtrado conmutado o 'toggle filtered' en inglés, para que la mancha de tinta se rectifique. Luego se realiza el paso 3 y 4 para la restauración del color del primer plano y la restauración del color del fondo. Por último, se aplica un postprocesamiento para reconstruir la imagen final restaurada.
+
+################################### DIAPO 10 ###################################
+
+Aquí se puede ver una demostración del resultado del modelo, donde esta sería la imagen de entrada degradada, esta la salida de la red extractora del primer plano, y finalmente la imagen del documento reconstruido.
+
+################################### DIAPO 11 ###################################
+
+Aunque el primer modelo logra buenos resultados, requiere de la intervención humana para establecer parámetros manualmente para ensayo y error. Por otra parte, el segundo modelo que proponen consiste en un sistema de aprendizaje donde no interviene en ningún momento el desarrollador.
+
+Este método consta de tres partes, primero restaurar los valores de los píxeles del primer plano, segundo los valores de los píxeles del fondo, y fianlmente un modelo simple para reconstruir el documento restaurado, teneindo en cuenta que se necesita el fichero de clases que se han generado en el procesamiento del dataset como en el primer modelo.
+
+Para la extracción del primer plano se entrena un modelo de auto-encoder similar a la usada en el primer modelo, con la diferencia de que , en este caso, hay 3 canales en las capas de entrada y salida, para tratar con la imagen en color. En este caso, el stride es de 50 y la red se entrena con el fichero de clases generado anteriormente. La función objetivo ahora es la SSIM ya que la estructura de la parte manuscrita es más importante que su color o intensidad.
+
+Para la restauración del fondo, que se realiza en paralelo con la restauración del primer plano, se utiliza una red similar a la anterior. Debido a que la imagen de fondo tiene mas manchas de degradación y que la restauración implica una gran cantidad de modificación de pixels, se necesita una mayor cantidad de muestras para entrenar la red. Por ello, se han volteado horizontal y verticalmente las muestras originales y se han añadido al entrenamiento, como se puede apreciar aquí [Cambio de diapositiva].
+
+################################### DIAPO 12 ###################################
+
+La función objetivo para esta red sigue siendo la SSIM. Finalmente, las muestras se combinan adecuadamente y se promedian las áreas superpuestas para la reconstrucción de la imagen del fondo original.
+
+################################### DIAPO 13 ###################################
+
+Aquí se puede ver una demostración del resultado del modelo 2, donde esta sería la imagen de entrada degradada, esta la salida de la red extractora del primer plano, esta la salida de la red extractora del fondo, y finalmente la imagen reconstruida obtenida combinando las dos anteriores.
+
+################################### DIAPO 14 ###################################
+
+Para los resultados, los autores del paper presentan tanto los resultados de la restauración de documentos como la extracción de textos de los métodos propuestos. En el segundo caso, comparan sus resultados con los de algunos métodos existentes, ya que para la restauración de documentos no hay resultados disponibles. 
+
+Han probado su método de extracción de texto en los datasets de DIBCO y H-DIBCO , de 2017 y 2018, respectivamente. Estos consisten en un gran número de imagenes escaneadas de viejos documentos manuscritos. Las métricas de evaluación que emplean las sacaron de las competiciones sobre binarización de imágenes en los que se utilizaron esos datasets y se puede apreciar unos buenos resultados, aunque quizá la métrica PSNR sea un tanto baja, ya que los valores típicos suelen estar entre los 30 y 50 dB. Esto en cuanto a las comparaciones cuantitativas [Cambio de diapositiva]. 
+
+################################### DIAPO 15 ###################################
+
+Con respecto a las cualitativas, aquí se puede apreciar los resultados sobre H-DIBCO 2018, donde esta figura es la parte de test y su correspondiente fichero de clases, mientras que esta otra tiene, en esta columna, los resultados del ganador de la competición, en esta los resultados del algoritmo que quedó en segunda posición, y en esta otra los resultados del método de los autores del artículo. Como se puede observar, los resultados son bastante similares.
+
+################################### DIAPO 16 ###################################
+
+Para terminar, el paper presenta un último apartado donde hace unas breves conclusiones del trabajo realizado, resumiendo los dos métodos que se han empleado y como el segundo se ve influenciado por el primero para las arquitecturas de las redes neuronales y los ficheros de clases de las muestras de entrenamiento y test. Terminan comentando que planean extender el trabajo en un futuro para manejar varios tipos de cartas y otros documentos.
+
+Y con esto finalizo la presentación, muchas gracias por vuestra atención.

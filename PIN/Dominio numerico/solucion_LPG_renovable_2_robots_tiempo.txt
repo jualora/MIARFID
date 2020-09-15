@@ -1,0 +1,33 @@
+
+; Version LPG-td-1.0
+; Seed 31547107
+; Command line: ./lpg -o dominio_robots_renovable.pddl -f problema_robots_renovable_2_robots_tiempo.pddl -n 1 -out solucion_LPG_renovable_2_robots_tiempo.txt 
+; Problem problema_robots_renovable_2_robots_tiempo.pddl
+; Time 0.05
+; Search time 0.05
+; Parsing time 0.00
+; Mutex time 0.00
+; MakeSpan 39.00
+
+
+0.0002:   (GET-CUP R2 A1 L3 T2 B1) [2.0000]
+0.0002:   (MOVE-ROBOT R1 L1 LP) [4.0000]
+2.0006:   (GET-CUP R2 A1 L3 T1 B2) [2.0000]
+4.0010:   (MOVE-ROBOT R2 L3 LP) [2.0000]
+6.0012:   (GIVE-CUP R2 R1 T1 LP B2 B1) [1.0000]
+7.0016:   (MOVE-ROBOT R2 LP L3) [2.0000]
+9.0018:   (MOVE-ROBOT R2 L3 LP) [2.0000]
+11.0020:   (GIVE-CUP R2 R1 T2 LP B1 B2) [1.0000]
+8.0024:   (MOVE-ROBOT R1 LP L1) [4.0000]
+12.0026:   (FILL-CUP R1 M1 L1 T1 B1) [2.0000]
+14.0030:   (MOVE-ROBOT R1 L1 LP) [4.0000]
+18.0032:   (MOVE-ROBOT R1 LP L1) [4.0000]
+22.0034:   (FILL-CUP R1 M1 L1 T2 B2) [2.0000]
+24.0038:   (MOVE-ROBOT R1 L1 L2) [2.0000]
+26.0040:   (SERVE-CUP R1 P1 L2 T1 B1) [3.0000]
+29.0044:   (MOVE-ROBOT R1 L2 LP) [4.0000]
+33.0046:   (GIVE-CUP R1 R2 T2 LP B2 B1) [3.0000]
+34.0050:   (MOVE-ROBOT R2 LP L3) [2.0000]
+36.0052:   (SERVE-CUP R2 P2 L3 T2 B1) [3.0000]
+
+

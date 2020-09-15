@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PcGts xmlns="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15 http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15/pagecontent.xsd">
+    <Metadata>
+        <Creator>Moises Pastor </Creator>
+        <Created>2018-05-03</Created>
+        <LastChange>2018-05-03T17:11:00</LastChange>
+    </Metadata>
+    <Page imageFilename="303.jpg" imageWidth="3289" imageHeight="2011">
+        <TextRegion id="r1" type="paragraph">
+            <Coords points="110,76 140,3168 1991,3172 1994,99"/>
+        </TextRegion>
+    </Page>
+</PcGts>

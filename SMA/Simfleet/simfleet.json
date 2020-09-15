@@ -1,0 +1,117 @@
+{
+    "fleets": [
+        {
+            "password": "secret",
+            "name": "fleetm1",
+            "fleet_type": "drone"
+        },
+        {
+            "password": "secret",
+            "name": "fleetm3",
+            "fleet_type": "food_delivery"
+        },
+        {
+            "password": "secret",
+            "name": "fleetm2",
+            "fleet_type": "drone"
+        }
+    ],
+    "transports": [
+        {
+            "speed": 2000,
+            "fleet": "fleetm1@gtirouter.dsic.upv.es",
+            "fleet_type": "drone",
+            "position": [40.41192762537371, -3.7105464935302734],
+            "password": "secret",
+            "name": "drone1_jualora1"
+        },
+        {
+            "speed": 2000,
+            "fleet": "fleetm1@gtirouter.dsic.upv.es",
+            "fleet_type": "drone",
+            "position": [40.428655600133546,-3.6993885040283203],
+            "password": "secret",
+            "name": "drone2_jualora1"
+        },
+        {
+            "speed": 2000,
+            "fleet": "fleetm2@gtirouter.dsic.upv.es",
+            "fleet_type": "drone",
+            "position": [40.446424515534666, -3.6612796783447266],
+            "password": "secret",
+            "name": "drone3_jualora1"
+        },
+        {
+            "speed": 2000,
+            "fleet": "fleetm3@gtirouter.dsic.upv.es",
+            "fleet_type": "food_delivery",
+            "position": [40.44635919724081,-3.69140625],
+            "password": "secret",
+            "name": "bike1_jualora1"
+        },
+        {
+            "speed": 2000,
+            "fleet": "fleetm3@gtirouter.dsic.upv.es",
+            "fleet_type": "food_delivery",
+            "position": [40.42035747630869,-3.665142059326172],
+            "password": "secret",
+            "name": "bike2_jualora1"
+        }
+    ],
+    "customers": [
+        {
+            "destination": [40.446163241978304,-3.7075424194335938],
+            "position": [40.45171508652634,-3.677501678466797],
+            "password": "secret",
+            "name": "c1",
+            "fleet_type": "drone"
+        },
+        {
+            "destination": [40.4068299938421,-3.670291900634765],
+            "position": [40.43087697137461,-3.716297149658203],
+            "password": "secret",
+            "name": "c2",
+            "fleet_type": "drone"
+        },
+        {
+            "destination": [40.43002763221108,-3.6797332763671875],
+            "position": [40.45759301026131,-3.664026260375976],
+            "password": "secret",
+            "name": "c3",
+            "fleet_type": "drone"
+        },
+        {
+            "destination": [40.45785423938172,-3.711318969726563],
+            "position": [40.440088345478614,-3.680849075317383],
+            "password": "secret",
+            "name": "f1",
+            "fleet_type": "food_delivery"
+        },
+        {
+            "destination": [40.458572614225545,-3.680419921875],
+            "position": [40.409770982232956,-3.6928653717041016],
+            "password": "secret",
+            "name": "f2",
+            "fleet_type": "food_delivery"
+        }
+    ],
+    "stations": [],
+    "simulation_name": "Example Config",
+    "max_time": 1000,
+    "verbose": 1,
+    "transport_strategy": "strategies.myTransportStrategy",
+    "customer_strategy": "strategies.myCustomerStrategy",
+    "fleetmanager_strategy": "strategies.myFleetManagerStrategy",
+    "fleetmanager_name": "fleetmanager",
+    "fleetmanager_password": "fleetmanager_passwd",
+    "route_name": "route",
+    "route_password": "route_passwd",
+    "directory_name": "directory",
+    "directory_password": "directory_passwd",
+    "host": "gtirouter.dsic.upv.es",
+    "xmpp_port": 5222,
+    "http_port": 9001,
+    "http_ip": "127.0.0.1",
+    "coords": [40.4167754, -3.7037902],
+    "zoom": 14
+}

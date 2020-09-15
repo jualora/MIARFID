@@ -1,0 +1,101 @@
+{
+  "id": "3706c9e2-d93d-4ced-823a-75ab2d43b367",
+  "name": "request",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "request-completed",
+      "affectedContexts": [
+        {
+          "name": "buy",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "0cb47b6a-5084-40bf-849c-eb3005b9f8fd",
+          "required": true,
+          "dataType": "@type",
+          "name": "type",
+          "value": "$type",
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿Qué película quieres ver?"
+            },
+            {
+              "lang": "es",
+              "value": "¿Qué película te gusta?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "2e5e8be8-1ebb-40b6-93d4-91dea9e2cc67",
+          "required": true,
+          "dataType": "@size",
+          "name": "size",
+          "value": "$size",
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿A qué hora?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "b9e5de83-707a-4cfe-a74d-86c2e09e5742",
+          "required": true,
+          "dataType": "@number",
+          "name": "number",
+          "value": "$number",
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿Cuantas entradas quieres?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "defaultValue": "una",
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "es",
+          "condition": "",
+          "speech": [
+            "Si he entendido bien, quieres una entrada para $type por la $time, ¿correcto?",
+            "Si he entendido bien quieres $number entradas para $type por la $time, ¿correcto?"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

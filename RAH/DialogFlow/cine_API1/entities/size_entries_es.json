@@ -1,0 +1,26 @@
+[
+  {
+    "value": "familiar",
+    "synonyms": [
+      "familiar",
+      "familiares",
+      "grande",
+      "grandes"
+    ]
+  },
+  {
+    "value": "mediana",
+    "synonyms": [
+      "mediana",
+      "medianas",
+      "normal"
+    ]
+  },
+  {
+    "value": "pequeña",
+    "synonyms": [
+      "pequeña",
+      "pequeñas"
+    ]
+  }
+]

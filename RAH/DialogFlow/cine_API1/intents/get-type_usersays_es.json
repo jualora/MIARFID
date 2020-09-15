@@ -1,0 +1,86 @@
+[
+  {
+    "id": "81fde880-936c-48de-b9b6-8312321459db",
+    "data": [
+      {
+        "text": "coreana",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7947e18e-b805-4d8d-b669-e35b2f88940c",
+    "data": [
+      {
+        "text": "la de los chinos",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "93561e15-df34-4d22-abfd-ce2e67182772",
+    "data": [
+      {
+        "text": "Parásitos",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "039efe68-52bc-465b-b0f0-a72214824460",
+    "data": [
+      {
+        "text": "Knives Out",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bd8c0189-39b0-4475-8ead-1b95e1d20068",
+    "data": [
+      {
+        "text": "1917",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6af01556-4e89-4fde-9d6b-9efa6ae9b9cd",
+    "data": [
+      {
+        "text": "la del payaso",
+        "alias": "film",
+        "meta": "@film",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
