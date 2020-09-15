@@ -1,6 +1,8 @@
 # MIARFID
 Tareas realizadas en el Máster Universitario en Inteligencia Artificial, Reconocimiento de Formas e Imagen Digital.
 
+Incluye el Trabajo de Fin de Máster, en el que se implementó un sistema de Traducción Automática para obtener las versiones en catalán, castellano y euskera de los datasets SQuAD y XQuAD, dedicados a la tarea de búsqueda de respuestas. Para dicha tarea se empleó el modelo de BERT para procesamiento del lenguaje natural.
+
 La mayoría de estos trabajos se han realizado junto con Jacobo López Fernández (@JacoboUPV).
 
 Asignaturas:
